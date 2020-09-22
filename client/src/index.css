@@ -1,6 +1,148 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background: #eee;
+  min-height: 95vh;
+  background-image: linear-gradient(45deg, rgb(247,250,254), rgb(239, 190, 199), rgb(225, 189, 250));
+}
+
+.app {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(64, 65, 101);
+}
+
+.app_title {
+  margin: 50px;
+}
+
+.book-info {
+  display: grid;
+  grid-template-columns: auto 500px;
+}
+
+.book-list {
+  padding: 0;
+  margin: 0 25px 0 50px;
+}
+
+.book-list_item {
+  display: inline-block;
+  margin: 5px;
+
+  list-style: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.3) inset;
+  cursor: pointer;
+}
+
+.book-list_item a {
+  display: inline-block;
+  padding: 20px;
+
+  color: rgb(64, 65, 101);
+  text-decoration: none;
+}
+
+.book-details {
+  margin: 0 50px 0 25px;
+
+  border-radius: 10px;
+  background-image: linear-gradient(90deg, rgb(196, 111, 241), rgb(237, 114, 147), rgb(241,160,105));
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.book-details .message {
+  padding: 30px;
+
+  text-align: center;
+  color: white;
+}
+
+.book-details_general {
+  padding: 30px;
+  color: white;
+}
+
+.book-details_general_name {
+  margin-bottom: 5px;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.book-details_general_genre {
+  margin-top: 5px;
+}
+
+.book-details_author {
+  padding: 30px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.book-details_author_name {
+  margin-bottom: 5px;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.book-details_author_age {
+  margin-top: 5px;
+}
+
+.add-book {
+  position: fixed;
+  bottom: 0;
+  margin: 50px;
+}
+
+.add-book_field {
+  margin: 10px 0;
+}
+
+.add-book_field input,
+.add-book_field select {
+  height: 50px;
+  width: 400px;
+  padding: 15px;
+
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+
   font-family: "Montserrat", sans-serif;
 }
 
+select {
+  appearance: none;
+  background-image: url("chevron-down-solid.svg");
+  background-position: 97% center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
 
+.add-book_button {
+  position: relative;
+  left: 350px;
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  background-image: radial-gradient(farthest-corner at 50px 50px, rgb(84 55 99), rgb(229 136 139));
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+
+  color: white;
+  font-size: 30px;
+}

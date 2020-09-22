@@ -6,32 +6,32 @@ import { BookDetails } from "./BookDetails";
 
 export function BookList() {
   const { loading, error, data } = useQuery(getBooksQuery);
-  const [selectedBook, selectBook] = useState("");
+  const [selectedBook, selectBook] = useState(null);
 
   const showBooks = () => {
-    if (loading) return <p>Loading books...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+    if (loading) return <p>Загрузка списка книг...</p>;
+    if (error) return <p>Ошибка: {error.message}</p>;
 
     if (data)
       return data.books.map((book) => {
         return (
           <li
+            className="book-list_item"
             key={book.id}
-            id={book.id}
             onClick={(e) => {
-              selectBook(e.target.id);
+              selectBook(book.id);
             }}
           >
-            {book.name}
+            <a href="#">{book.name}</a>
           </li>
         );
       });
   };
 
   return (
-    <div>
-      <ul id="book-list">{showBooks()}</ul>
-      {selectedBook && <BookDetails bookId={selectedBook} />}
+    <div className="book-info">
+      <ul className="book-list">{showBooks()}</ul>
+      <BookDetails bookId={selectedBook} />
     </div>
   );
 }
