@@ -13,8 +13,11 @@ export function App() {
   return (
     <ApolloProvider client={client}>
       <div className="app">
-        <h1 className="app_title">МОЙ СПИСОК КНИГ</h1>
-        <BookList />
+        <div className="app_main">
+          <h1 className="app_title">МОЙ СПИСОК КНИГ</h1>
+          <BookList />
+        </div>
+
         <AddBook />
       </div>
     </ApolloProvider>

@@ -20,7 +20,7 @@ export function BookDetails(props) {
     if (data) {
       const book = data.book;
       return (
-        <div>
+        <>
           <div className="book-details_general">
             <h2 className="book-details_general_name">{book.name}</h2>
             <p className="book-details_general_genre">{book.genre}</p>
@@ -37,7 +37,7 @@ export function BookDetails(props) {
               ))}
             </ul>
           </div>
-        </div>
+        </>
       );
     }
   };

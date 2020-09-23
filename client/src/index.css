@@ -3,32 +3,71 @@ body, html {
   padding: 0;
 }
 
+html {
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  min-height: 95vh;
-  background-image: linear-gradient(45deg, rgb(247,250,254), rgb(239, 190, 199), rgb(225, 189, 250));
+#root, .app {
+  height: 100%;
 }
-
 .app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 50px;
+
+  background-image: radial-gradient(farthest-corner at 500px 200px,transparent, rgba(246, 249, 253, 0.8)),
+                    linear-gradient(90deg, rgb(255 173 148), rgb(237,158,183), rgb(225, 191, 251));
+
   font-family: "Montserrat", sans-serif;
   color: rgb(64, 65, 101);
 }
 
+.app_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
 .app_title {
-  margin: 50px;
+  margin: 0;
 }
 
 .book-info {
   display: grid;
-  grid-template-columns: auto 500px;
+}
+
+@media (max-width: 1024px) {
+  .book-info {
+    grid-row-gap: 50px;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    height: 1px;
+  }
+
+  .book-info {
+    grid-column-gap: 50px;
+    grid-template-columns: auto 500px;
+  }
 }
 
 .book-list {
   padding: 0;
-  margin: 0 25px 0 50px;
+  margin: 0;
 }
 
 .book-list_item {
@@ -36,22 +75,22 @@ body {
   margin: 5px;
 
   list-style: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.3) inset;
-  cursor: pointer;
 }
 
-.book-list_item a {
-  display: inline-block;
+.book-list_item button {
   padding: 20px;
 
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.3) inset;
+
+  font-family: "Montserrat", sans-serif;
   color: rgb(64, 65, 101);
-  text-decoration: none;
 }
 
 .book-details {
-  margin: 0 50px 0 25px;
+  margin: 0;
 
   border-radius: 10px;
   background-image: linear-gradient(90deg, rgb(196, 111, 241), rgb(237, 114, 147), rgb(241,160,105));
@@ -84,7 +123,7 @@ body {
 .book-details_author {
   padding: 30px;
 
-  background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.95));
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5) inset;
 }
@@ -101,9 +140,10 @@ body {
 }
 
 .add-book {
-  position: fixed;
-  bottom: 0;
-  margin: 50px;
+  position: relative;
+  max-width: 600px;
+  margin: 0;
+  padding-bottom: 50px;
 }
 
 .add-book_field {
@@ -113,12 +153,12 @@ body {
 .add-book_field input,
 .add-book_field select {
   height: 50px;
-  width: 400px;
+  width: 100%;
   padding: 15px;
 
   border: none;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255,255, 255, 0.3);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
 
   font-family: "Montserrat", sans-serif;
@@ -133,13 +173,13 @@ select {
 }
 
 .add-book_button {
-  position: relative;
-  left: 350px;
+  position: absolute;
+  right: 0;
   width: 50px;
   height: 50px;
 
   border: none;
-  background-image: radial-gradient(farthest-corner at 50px 50px, rgb(84 55 99), rgb(229 136 139));
+  background-image: radial-gradient(farthest-corner at 40px 20px, rgb(177 67 167), rgb(229 136 139));
   border-radius: 25px;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 

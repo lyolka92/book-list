@@ -18,11 +18,11 @@ export function BookList() {
           <li
             className="book-list_item"
             key={book.id}
-            onClick={(e) => {
+            onClick={() => {
               selectBook(book.id);
             }}
           >
-            <a href="#">{book.name}</a>
+            <button>{book.name}</button>
           </li>
         );
       });
